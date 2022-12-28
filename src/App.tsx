@@ -5,10 +5,12 @@ import { ParallaxBanner, ParallaxBannerLayer } from 'react-scroll-parallax';
 import Block from './Block';
 import Content from './Content';
 import { FaStar, FaRegStar } from 'react-icons/fa';
+import MediaQuery from 'react-responsive'
+
 function App() {
   const [count, setCount] = useState(0)
 
-  const renderSkillLevel = (level, skillName) => {
+  const renderSkillLevel = (level: number, skillName: string) => {
     let skillArray = [];
     for (let i = 0; i < 5; i++) {
       if (i < level) {
@@ -41,7 +43,7 @@ function App() {
   const renderFirstPage = () => {
     return (
       <>
-        <Block colorNumber={1} col={4} row={2}>
+        <Block colorNumber={2} col={4} row={2}>
           <Content>
             <div className="text-xl font-bold">Levente Hegedüs</div>
             <div>Senior software engineer</div>
@@ -49,7 +51,7 @@ function App() {
         </Block>
         <Block colorNumber={2} col={4} row={2}>
         </Block>
-        <Block colorNumber={1} col={3} row={6}>
+        <Block colorNumber={2} col={3} row={6}>
         </Block>
         <Block colorNumber={3} col={2} row={4}>
           <img src="/hl.jpg" className="object-top object-cover h-full grayscale w-full" />
@@ -72,7 +74,7 @@ function App() {
         <Block col={4} row={4} >
           <ParallaxBanner
             layers={[{ image: '/gf2.jpeg', speed: Math.random() > 0.5 ? 10 : -10 }]}
-            className="h-full grayscale"
+            className="h-full grayscale min-h-[200px]"
           />
         </Block>
         <Block colorNumber={7} col={4} row={4} >
@@ -94,7 +96,7 @@ function App() {
         <Block col={4} row={4} >
           <ParallaxBanner
             layers={[{ image: '/gf3.jpeg', speed: Math.random() > 0.5 ? 10 : -10 }]}
-            className="h-full grayscale"
+            className="h-full grayscale min-h-[200px]"
           />
         </Block>
       </>
@@ -111,7 +113,7 @@ function App() {
             <div>Senior Frontend developer</div>
           </Content>
         </Block>
-        <Block colorNumber={2} col={2} row={4} className="row-span-3">
+        <Block colorNumber={2} col={2} row={4}>
           <Content>
             <div className="font-bold">Statzup</div>
             <div><i>Consolidity (2019 - 2021)</i></div>
@@ -130,23 +132,41 @@ That was my first ReactJS project. We also used ReduxJS as a state container.</d
         <Block colorNumber={1} col={2} row={4}>
           <ParallaxBanner
             layers={[{ image: 'https://images.unsplash.com/photo-1508780709619-79562169bc64?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80', speed: Math.random() > 0.5 ? 10 : -10 }]}
-            className="h-full grayscale"
+            className="h-full grayscale min-h-[200px]"
           />
         </Block>
-        <Block colorNumber={3} col={2} row={4}>
-          <ParallaxBanner
-            layers={[{ image: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80', speed: Math.random() > 0.5 ? 10 : -10 }]}
-            className="h-full grayscale"
-          />
-        </Block>
-        <Block colorNumber={1} col={2} row={4}>
-          <Content>
-            <div className="font-bold">Statzup</div>
-            <div><i>Play The Six (2016 - 2018)</i></div>
-            <div>Play The Six was the older version of League of Managers. It was available only in the USA and Latin America.
+        <MediaQuery minWidth={768}>
+          <Block colorNumber={3} col={2} row={4}>
+            <ParallaxBanner
+              layers={[{ image: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80', speed: Math.random() > 0.5 ? 10 : -10 }]}
+              className="h-full grayscale min-h-[200px]"
+            />
+          </Block>
+          <Block colorNumber={1} col={2} row={4}>
+            <Content>
+              <div className="font-bold">Statzup</div>
+              <div><i>Play The Six (2016 - 2018)</i></div>
+              <div>Play The Six was the older version of League of Managers. It was available only in the USA and Latin America.
 This was my first project at Statzup and the frontend was written in EmberJS.</div>
-          </Content>
-        </Block>
+            </Content>
+          </Block>
+        </MediaQuery>
+        <MediaQuery maxWidth={768}>
+          <Block colorNumber={1} col={2} row={4}>
+            <Content>
+              <div className="font-bold">Statzup</div>
+              <div><i>Play The Six (2016 - 2018)</i></div>
+              <div>Play The Six was the older version of League of Managers. It was available only in the USA and Latin America.
+        This was my first project at Statzup and the frontend was written in EmberJS.</div>
+            </Content>
+          </Block>
+          <Block colorNumber={3} col={2} row={4}>
+            <ParallaxBanner
+              layers={[{ image: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80', speed: Math.random() > 0.5 ? 10 : -10 }]}
+              className="h-full grayscale min-h-[200px]"
+            />
+          </Block>
+        </MediaQuery>
         <Block colorNumber={2} col={2} row={4}>
           <Content>
             <div className="font-bold">Statzup</div>
@@ -180,7 +200,7 @@ This was my first project at Statzup and the frontend was written in EmberJS.</d
         <Block col={4} row={4}>
           <ParallaxBanner
             layers={[{ image: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80', speed: Math.random() > 0.5 ? 10 : -10 }]}
-            className="h-full grayscale"
+            className="h-full grayscale min-h-[200px]"
           />
         </Block>
         <Block colorNumber={4} col={4} row={2}>
@@ -191,10 +211,10 @@ This was my first project at Statzup and the frontend was written in EmberJS.</d
             <div>I tested Java projects created by the development team.</div>
           </Content>
         </Block>
-        <Block col={4} row={4} className="bg-gir-6">
+        <Block col={4} row={4}>
           <ParallaxBanner
             layers={[{ image: 'https://images.unsplash.com/photo-1517330486404-33542d376afd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80', speed: Math.random() > 0.5 ? 10 : -10 }]}
-            className="h-full grayscale"
+            className="h-full grayscale min-h-[200px]"
           />
         </Block>
         <Block colorNumber={5} col={4} row={2}>
@@ -219,52 +239,68 @@ This was my first project at Statzup and the frontend was written in EmberJS.</d
         <Block colorNumber={4} col={1} row={6}></Block>
         <Block colorNumber={5} col={3} row={3}>
           <Content>
-            <div><b>Hype & Hyper</b></div>
+            <div><b><a href="https://hypeandhyper.com/" target="_blank">Hype & Hyper (2022)</a></b></div>
             <div>Hype and Hyper is Central and Eastern European magazine on strategy, trends in design, technology and urban life. We had to rewrite, implement a new design and transfer their old Wordpress site to Ghost CMS.</div>
           </Content>
         </Block>
         <Block col={3} row={3}>
           <ParallaxBanner
             layers={[{ image: 'hh.jpeg', speed: Math.random() > 0.5 ? 10 : -10 }]}
-            className="h-full grayscale bg-bottom"
+            className="h-full grayscale min-h-[200px]"
           />
         </Block>
         <Block colorNumber={6} col={1} row={6}></Block>
-        <Block col={3} row={3}>
-          <ParallaxBanner
-            layers={[{ image: 'hh.jpeg', speed: Math.random() > 0.5 ? 10 : -10 }]}
-            className="h-full grayscale bg-bottom"
-          />
-        </Block>
-        <Block colorNumber={1} col={3} row={3}>
-          <Content>
-            <div><b>Ricsárdgír</b></div>
-            <div>Responsive website for my friend's band. It was an exciting experience to create a really funny website, cool design  and also personalized games for them. Almost everything was written from scratch with TailwindCSS and ReactJS.</div>
-          </Content>
-        </Block>
+        <MediaQuery minWidth={768}>
+          <Block col={3} row={3}>
+            <ParallaxBanner
+              layers={[{ image: 'ricsardgir.png', speed: Math.random() > 0.5 ? 10 : -10 }]}
+              className="h-full grayscale min-h-[200px]"
+            />
+          </Block>
+          <Block colorNumber={1} col={3} row={3}>
+            <Content>
+              <div><b><a href="http://ricsardgir.com/" target="_blank">Ricsárdgír (2018 - )</a></b></div>
+              <div>Responsive website for my friend's band. It was an exciting experience to create a really funny website, cool design  and also personalized games for them. Almost everything was written from scratch with TailwindCSS and ReactJS.</div>
+            </Content>
+          </Block>
+        </MediaQuery>
+        <MediaQuery maxWidth={767}>
+          <Block colorNumber={1} col={3} row={3}>
+            <Content>
+              <div><b><a href="http://ricsardgir.com/" target="_blank">Ricsárdgír (2018 - )</a></b></div>
+              <div>Responsive website for my friend's band. It was an exciting experience to create a really funny website, cool design  and also personalized games for them. Almost everything was written from scratch with TailwindCSS and ReactJS.</div>
+            </Content>
+          </Block>
+          <Block col={3} row={3}>
+            <ParallaxBanner
+              layers={[{ image: 'ricsardgir.png', speed: Math.random() > 0.5 ? 10 : -10 }]}
+              className="h-full grayscale min-h-[200px]"
+            />
+          </Block>
+        </MediaQuery>
         <Block colorNumber={2} col={1} row={6}></Block>
         <Block colorNumber={5} col={3} row={3}>
           <Content>
-            <div><b>drpurcsikatalin.hu</b></div>
+            <div><b><a href="https://drpurcsikatalin.hu/" target="_blank">drpurcsikatalin.hu (2020)</a></b></div>
             <div>I created a responsive one pager website for my medical doctor aunt. The site was written from scratch and uses only HTML, CSS and some Javascript. I also did the design and the SEO for the page.</div>
           </Content>
         </Block>
-        <Block col={3} row={3}>
-          <ParallaxBanner
-            layers={[{ image: 'all-devices-black.png', speed: Math.random() > 0.5 ? 10 : -10 }]}
-            className="h-full grayscale"
-          />
+        <Block colorNumber={2} col={3} row={3}>
+          <Content>
+            <div><b><a href="https://legter.hu/legterkereso-terkep" target="_blank">legter.hu (2020)</a></b></div>
+            <div>Interactive map for aviation. Had a chance to get a better knowledge of MapGL and Mapbox.</div>
+          </Content>
         </Block>
         <Block colorNumber={4} col={1} row={6}></Block>
         <Block colorNumber={3} col={3} row={3}>
           <Content>
-            <div><b>VidUX Face Recognition webapplication</b></div>
+            <div><b>VidUX Face Recognition webapplication (2019)</b></div>
             <div>Webapplication for VidUX company's Face Recognition app. The company required a webapp for their existing application. Me and my project partner was responsible for the UI/UX planning, too. The webapp was written in ReactJS with ReduxJS.</div>
           </Content>
         </Block>
         <Block colorNumber={6} col={3} row={3}>
           <Content>
-            <div><b>rhnd.io (2017)</b></div>
+            <div><b><a href="https://rhnd.io/" target="_blank">rhnd.io (2017)</a></b></div>
             <div>Responsive onepager for RHND. The site was written from scratch and uses only HTML, CSS and some Javascript.</div>
           </Content>
         </Block>
@@ -290,7 +326,7 @@ This was my first project at Statzup and the frontend was written in EmberJS.</d
         <Block colorNumber={4} col={2} row={4}>
           <ParallaxBanner
             layers={[{ image: 'https://images.unsplash.com/photo-1667162020876-9b6d74ad1962?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1587&q=80', speed: Math.random() > 0.5 ? 10 : -10 }]}
-            className="h-full grayscale"
+            className="h-full grayscale min-h-[200px]"
           />
         </Block>
         <Block colorNumber={3} col={3} row={6}>
@@ -313,6 +349,9 @@ This was my first project at Statzup and the frontend was written in EmberJS.</d
         </Block>
         <Block colorNumber={2} col={2} row={2}>
           <Content>{renderSkillLevel(4, 'ReduxJS')}</Content>
+        </Block>
+        <Block colorNumber={6} col={2} row={2}>
+          <Content>{renderSkillLevel(2, 'TypeScript')}</Content>
         </Block>
         <Block colorNumber={3} col={2} row={2}>
           <Content>{renderSkillLevel(5, 'CSS/SCSS')}</Content>
@@ -340,9 +379,6 @@ This was my first project at Statzup and the frontend was written in EmberJS.</d
         </Block>
         <Block colorNumber={5} col={2} row={2}>
           <Content>{renderSkillLevel(2, 'NodeJS')}</Content>
-        </Block>
-        <Block colorNumber={6} col={2} row={2}>
-          <Content>{renderSkillLevel(2, 'Handlebars.js')}</Content>
         </Block>
         <Block colorNumber={1} col={1} row={2}>
           <Content>
@@ -380,10 +416,10 @@ This was my first project at Statzup and the frontend was written in EmberJS.</d
         <Block colorNumber={1} col={2} row={4}>
           <ParallaxBanner
             layers={[{ image: 'running.jpg', speed: Math.random() > 0.5 ? 10 : -10 }]}
-            className="h-full grayscale"
+            className="h-full grayscale min-h-[200px]"
           />
         </Block>
-        <Block colorNumber={2} col={2} row={4} className="row-span-3">
+        <Block colorNumber={2} col={2} row={4}>
           <Content>
             <div className="font-bold">Music</div>
             <div>I'm a really huge fan of all forms of music. I can play the guitar, piano, ukulele and kalimba. I love to go to concerts and I'm lucky that I could perform on stage a couple of times.</div>
@@ -392,33 +428,61 @@ This was my first project at Statzup and the frontend was written in EmberJS.</d
         <Block colorNumber={1} col={2} row={4}>
           <ParallaxBanner
             layers={[{ image: 'music.jpg', speed: Math.random() > 0.5 ? 10 : -10 }]}
-            className="h-full grayscale"
+            className="h-full grayscale min-h-[200px]"
           />
         </Block>
-        <Block colorNumber={1} col={2} row={4}>
-          <ParallaxBanner
-            layers={[{ image: 'football.jpg', speed: Math.random() > 0.5 ? 10 : -10 }]}
-            className="h-full grayscale"
-          />
-        </Block>
-        <Block colorNumber={3} col={2} row={4}>
-          <Content>
-            <div className="font-bold">Football</div>
-            <div>I'm a passionate supporter of my favourite football team. I've watched them live in more than 5 different countries. I also write a blog about them.</div>
-          </Content>
-        </Block>
-        <Block colorNumber={2} col={2} row={4}>
-          <ParallaxBanner
-            layers={[{ image: 'travelling.jpg', speed: Math.random() > 0.5 ? 10 : -10 }]}
-            className="h-full grayscale"
-          />
-        </Block>
-        <Block colorNumber={1} col={2} row={4}>
-          <Content>
-            <div className="font-bold">Travelling</div>
-            <div>Travelling lorem ipsum</div>
-          </Content>
-        </Block>
+        <MediaQuery minWidth={768}>
+          <Block colorNumber={1} col={2} row={4}>
+            <ParallaxBanner
+              layers={[{ image: 'football.jpg', speed: Math.random() > 0.5 ? 10 : -10 }]}
+              className="h-full grayscale min-h-[200px]"
+            />
+          </Block>
+          <Block colorNumber={3} col={2} row={4}>
+            <Content>
+              <div className="font-bold">Football</div>
+              <div>I'm a passionate supporter of my favourite football team. I've watched them live in more than 5 different countries. I also write a blog about them.</div>
+            </Content>
+          </Block>
+          <Block colorNumber={2} col={2} row={4}>
+            <ParallaxBanner
+              layers={[{ image: 'travelling.jpg', speed: Math.random() > 0.5 ? 10 : -10 }]}
+              className="h-full grayscale min-h-[200px]"
+            />
+          </Block>
+          <Block colorNumber={1} col={2} row={4}>
+            <Content>
+              <div className="font-bold">Travelling</div>
+              <div>Travelling lorem ipsum</div>
+            </Content>
+          </Block>
+        </MediaQuery>
+        <MediaQuery maxWidth={767}>
+          <Block colorNumber={3} col={2} row={4}>
+            <Content>
+              <div className="font-bold">Football</div>
+              <div>I'm a passionate supporter of my favourite football team. I've watched them live in more than 5 different countries. I also write a blog about them.</div>
+            </Content>
+          </Block>
+          <Block colorNumber={1} col={2} row={4}>
+            <ParallaxBanner
+              layers={[{ image: 'football.jpg', speed: Math.random() > 0.5 ? 10 : -10 }]}
+              className="h-full grayscale min-h-[200px]"
+            />
+          </Block>
+          <Block colorNumber={1} col={2} row={4}>
+            <Content>
+              <div className="font-bold">Travelling</div>
+              <div>Travelling lorem ipsum</div>
+            </Content>
+          </Block>
+          <Block colorNumber={2} col={2} row={4}>
+            <ParallaxBanner
+              layers={[{ image: 'travelling.jpg', speed: Math.random() > 0.5 ? 10 : -10 }]}
+              className="h-full grayscale min-h-[200px]"
+            />
+          </Block>
+        </MediaQuery>
       </>
     )
   }
@@ -440,6 +504,9 @@ This was my first project at Statzup and the frontend was written in EmberJS.</d
         Skills as a professional
       </div>
       {render7thPage()}
+      <div className="col-span-4 md:col-span-8 bg-gir-5 flex items-center justify-center text-white text-xl font-black  p-8">
+        Life after 5PM
+      </div>
       {render8thPage()}
       <div className="col-span-4 md:col-span-8 bg-gir-5 flex items-center justify-center text-white text-xl font-black  p-8">
         Contact

@@ -4,7 +4,7 @@ import './App.css'
 import { ParallaxBanner, ParallaxBannerLayer } from 'react-scroll-parallax';
 import Block from './Block';
 import Content from './Content';
-import { FaStar, FaRegStar } from 'react-icons/fa';
+import { FaStar, FaRegStar, FaRegEnvelope, FaLinkedinIn, FaGithub, FaPhoneAlt } from 'react-icons/fa';
 import MediaQuery from 'react-responsive'
 
 function App() {
@@ -24,11 +24,11 @@ function App() {
     return (
       <div>
         <div className="flex justify-center items-center gap-x-2">{
-          skillArray.map((skill) => {
+          skillArray.map((skill, index) => {
             if (skill) {
-              return <FaStar />
+              return <FaStar key={index}/>
             } else {
-              return <FaRegStar />
+              return <FaRegStar key={index}/>
             }
           })
         }
@@ -54,7 +54,7 @@ function App() {
         <Block colorNumber={2} col={3} row={6}>
         </Block>
         <Block colorNumber={3} col={2} row={4}>
-          <img src="/hl.jpg" className="object-top object-cover h-full grayscale w-full" />
+          <img src="/hl.jpg" className="object-top object-cover h-[400px] md:h-full grayscale w-full" />
         </Block>
         <Block colorNumber={3} col={3} row={6}>
           <Content>
@@ -350,19 +350,19 @@ This was my first project at Statzup and the frontend was written in EmberJS.</d
         <Block colorNumber={2} col={2} row={2}>
           <Content>{renderSkillLevel(4, 'ReduxJS')}</Content>
         </Block>
-        <Block colorNumber={6} col={2} row={2}>
+        <Block colorNumber={3} col={2} row={2}>
           <Content>{renderSkillLevel(2, 'TypeScript')}</Content>
         </Block>
-        <Block colorNumber={3} col={2} row={2}>
+        <Block colorNumber={4} col={2} row={2}>
           <Content>{renderSkillLevel(5, 'CSS/SCSS')}</Content>
         </Block>
-        <Block colorNumber={4} col={2} row={2}>
+        <Block colorNumber={5} col={2} row={2}>
           <Content>{renderSkillLevel(4, 'TailwindCSS')}</Content>
         </Block>
-        <Block colorNumber={5} col={2} row={2}>
+        <Block colorNumber={6} col={2} row={2}>
           <Content>{renderSkillLevel(3, 'MaterialUI')}</Content>
         </Block>
-        <Block colorNumber={6} col={2} row={2}>
+        <Block colorNumber={7} col={2} row={2}>
           <Content>{renderSkillLevel(5, 'HTML')}</Content>
         </Block>
         <Block colorNumber={1} col={2} row={2}>
@@ -380,22 +380,22 @@ This was my first project at Statzup and the frontend was written in EmberJS.</d
         <Block colorNumber={5} col={2} row={2}>
           <Content>{renderSkillLevel(2, 'NodeJS')}</Content>
         </Block>
-        <Block colorNumber={1} col={1} row={2}>
+        <Block colorNumber={6} col={1} row={2}>
           <Content>
             <div>Other skills</div>
           </Content>
         </Block>
-        <Block colorNumber={2} col={3} row={2}>
+        <Block colorNumber={7} col={3} row={2}>
           <Content>
             <div>TeamCity, AWS S3, Codeship, Excel, MacOS, SourceTree, Expo.io, inVision, Photoshop, Spark AR, UX/UI planning, EmberJS</div>
           </Content>
         </Block>
-        <Block colorNumber={3} col={1} row={2}>
+        <Block colorNumber={1} col={1} row={2}>
           <Content>
             <div>Personal skills</div>
           </Content>
         </Block>
-        <Block colorNumber={4} col={3} row={2}>
+        <Block colorNumber={2} col={3} row={2}>
           <Content>
             <div>Hard worker, Responsible for my work, Innovative thinking, System critical view, Sense of beauty for designs, Clean coding, Team player, Good sense of humour, Empathy</div>
           </Content>
@@ -453,7 +453,7 @@ This was my first project at Statzup and the frontend was written in EmberJS.</d
           <Block colorNumber={1} col={2} row={4}>
             <Content>
               <div className="font-bold">Travelling</div>
-              <div>Travelling lorem ipsum</div>
+              <div>I'm an enthusiast backpacker and traveller. I prefer to do travelling in the unusal way, love to hitchhike and use Couchsurfing as usual as possible.</div>
             </Content>
           </Block>
         </MediaQuery>
@@ -473,7 +473,7 @@ This was my first project at Statzup and the frontend was written in EmberJS.</d
           <Block colorNumber={1} col={2} row={4}>
             <Content>
               <div className="font-bold">Travelling</div>
-              <div>Travelling lorem ipsum</div>
+              <div>I'm an enthusiast backpacker and traveller. I prefer to do travelling in the unusal way, love to hitchhike and use Couchsurfing as usual as possible.</div>
             </Content>
           </Block>
           <Block colorNumber={2} col={2} row={4}>
@@ -483,6 +483,45 @@ This was my first project at Statzup and the frontend was written in EmberJS.</d
             />
           </Block>
         </MediaQuery>
+      </>
+    )
+  }
+
+  const render9thPage = () => {
+    return (
+      <>
+        <Block colorNumber={1} col={4} row={2}>
+          <Content>
+            <div className="font-bold flex items-center gap-x-2"><FaRegEnvelope/><span>mail</span></div>
+            <div><a href="mailto:levi.hegedus92@gmail.com" target="_blank">levi.hegedus92@gmail.com</a></div>
+          </Content>
+        </Block>
+        <Block colorNumber={2} col={4} row={2}>
+          <Content>
+            <div className="font-bold flex items-center gap-x-2"><FaLinkedinIn/><span>linkedIn</span></div>
+            <div><a href="https://www.linkedin.com/in/levente-hegedus" target="__blank">linkedin.com/in/levente-hegedus</a></div>
+          </Content>
+        </Block>
+        <Block colorNumber={3} col={4} row={2}>
+          <Content>
+            <div className="font-bold flex items-center gap-x-2"><FaGithub/><span>github</span></div>
+            <div><a href="https://www.github.com/leventehegedus" target="__blank">github.com/leventehegedus</a></div>
+          </Content>
+        </Block>
+        <Block col={4} row={4}>
+          <ParallaxBanner
+            layers={[{ image: 'phone2.jpg', speed: Math.random() > 0.5 ? 10 : -10 }]}
+            className="h-full grayscale min-h-[200px]"
+          />
+        </Block>
+        <Block colorNumber={4} col={4} row={2}>
+          <Content>
+            <div className="font-bold flex items-center gap-x-2"><FaPhoneAlt/><span>phone</span></div>
+            <div>+36-30-7019989</div>
+          </Content>
+        </Block>
+        <Block colorNumber={5} col={8} row={2}>
+        </Block>
       </>
     )
   }
@@ -511,6 +550,7 @@ This was my first project at Statzup and the frontend was written in EmberJS.</d
       <div className="col-span-4 md:col-span-8 bg-gir-5 flex items-center justify-center text-white text-xl font-black  p-8">
         Contact
       </div>
+      {render9thPage()}
     </div>
   )
 }

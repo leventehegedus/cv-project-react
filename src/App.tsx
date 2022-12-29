@@ -4,7 +4,7 @@ import './App.css'
 import { ParallaxBanner, ParallaxBannerLayer } from 'react-scroll-parallax';
 import Block from './Block';
 import Content from './Content';
-import { FaStar, FaRegStar, FaRegEnvelope, FaLinkedinIn, FaGithub, FaPhoneAlt } from 'react-icons/fa';
+import { FaStar, FaRegStar, FaRegEnvelope, FaLinkedinIn, FaGithub, FaPhoneAlt, FaRegSave } from 'react-icons/fa';
 import MediaQuery from 'react-responsive'
 
 function App() {
@@ -26,9 +26,9 @@ function App() {
         <div className="flex justify-center items-center gap-x-2">{
           skillArray.map((skill, index) => {
             if (skill) {
-              return <FaStar key={index}/>
+              return <FaStar key={index} />
             } else {
-              return <FaRegStar key={index}/>
+              return <FaRegStar key={index} />
             }
           })
         }
@@ -71,13 +71,7 @@ function App() {
   const renderSecondPage = () => {
     return (
       <>
-        <Block col={4} row={4} >
-          <ParallaxBanner
-            layers={[{ image: '/gf2.jpeg', speed: Math.random() > 0.5 ? 10 : -10 }]}
-            className="h-full grayscale min-h-[200px]"
-          />
-        </Block>
-        <Block colorNumber={7} col={4} row={4} >
+        <Block colorNumber={1} col={4} row={4} >
           <Content>
             <div className="font-bold">HTEC Group</div>
             <div>Budapest, HU / (2022 - )</div>
@@ -85,19 +79,25 @@ function App() {
             <div>HTEC Group is a global consulting, software engineering, and digital product development company that helps global disrupters engineer a better future. In our project we rewrite, refactor and evolve an old VueJS application into a new ReactJS application.</div>
           </Content>
         </Block>
-        <Block colorNumber={3} col={4} row={4} >
+        <Block col={4} row={4} >
+          <ParallaxBanner
+            layers={[{ image: '/gf2.jpeg', speed: -10 }]}
+            className="h-full grayscale min-h-[200px]"
+          />
+        </Block>
+        <Block col={4} row={4} >
+          <ParallaxBanner
+            layers={[{ image: '/gf3.jpeg', speed: -10 }]}
+            className="h-full grayscale min-h-[200px]"
+          />
+        </Block>
+        <Block colorNumber={7} col={4} row={4} >
           <Content>
             <div className="font-bold">Greenfox Academy</div>
             <div>Budapest, HU / (2021 - )</div>
             <div>Mentor</div>
             <div>I had the great opportunity to mentor and teach talented apprentices in a JS Fullstack bootcamp. During the 11 month course the apprentices learned the basics of Javascript, NodeJS, ReactJS, SQL, HTML, CSS and stepped on their path to get their first job as a software engineer.</div>
           </Content>
-        </Block>
-        <Block col={4} row={4} >
-          <ParallaxBanner
-            layers={[{ image: '/gf3.jpeg', speed: Math.random() > 0.5 ? 10 : -10 }]}
-            className="h-full grayscale min-h-[200px]"
-          />
         </Block>
       </>
     )
@@ -106,7 +106,7 @@ function App() {
   const renderThirdPage = () => {
     return (
       <>
-        <Block colorNumber={1} col={2} row={4}>
+        <Block colorNumber={3} col={2} row={4}>
           <Content>
             <div className="font-bold">Statzup</div>
             <div>Budapest, HU / (2016 - 2021)</div>
@@ -121,7 +121,7 @@ function App() {
 The frontend was written in ReactJS (with React Hooks and ReduxJS) and in a small part of the project, where we generated PDFs, VueJS was used.</div>
           </Content>
         </Block>
-        <Block colorNumber={3} col={2} row={4}>
+        <Block colorNumber={1} col={2} row={4}>
           <Content>
             <div className="font-bold">Statzup</div>
             <div><i>League of Managers (2016 - 2020)</i></div>
@@ -131,14 +131,14 @@ That was my first ReactJS project. We also used ReduxJS as a state container.</d
         </Block>
         <Block colorNumber={1} col={2} row={4}>
           <ParallaxBanner
-            layers={[{ image: 'https://images.unsplash.com/photo-1508780709619-79562169bc64?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80', speed: Math.random() > 0.5 ? 10 : -10 }]}
+            layers={[{ image: 'it_2.jpg', speed: -10 }]}
             className="h-full grayscale min-h-[200px]"
           />
         </Block>
         <MediaQuery minWidth={768}>
           <Block colorNumber={3} col={2} row={4}>
             <ParallaxBanner
-              layers={[{ image: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80', speed: Math.random() > 0.5 ? 10 : -10 }]}
+              layers={[{ image: 'it_3.jpg', speed: -10 }]}
               className="h-full grayscale min-h-[200px]"
             />
           </Block>
@@ -162,7 +162,7 @@ This was my first project at Statzup and the frontend was written in EmberJS.</d
           </Block>
           <Block colorNumber={3} col={2} row={4}>
             <ParallaxBanner
-              layers={[{ image: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80', speed: Math.random() > 0.5 ? 10 : -10 }]}
+              layers={[{ image: 'it_3.jpg', speed: -10 }]}
               className="h-full grayscale min-h-[200px]"
             />
           </Block>
@@ -196,10 +196,10 @@ This was my first project at Statzup and the frontend was written in EmberJS.</d
             <div>I worked on many small applets. These projects were written in IceFaces which is a JSF Framework.</div>
           </Content>
         </Block>
-        <Block colorNumber={6} col={4} row={2}></Block>
+        <Block colorNumber={7} col={4} row={2}></Block>
         <Block col={4} row={4}>
           <ParallaxBanner
-            layers={[{ image: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80', speed: Math.random() > 0.5 ? 10 : -10 }]}
+            layers={[{ image: 'it_1.jpg', speed: -10 }]}
             className="h-full grayscale min-h-[200px]"
           />
         </Block>
@@ -213,7 +213,7 @@ This was my first project at Statzup and the frontend was written in EmberJS.</d
         </Block>
         <Block col={4} row={4}>
           <ParallaxBanner
-            layers={[{ image: 'https://images.unsplash.com/photo-1517330486404-33542d376afd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80', speed: Math.random() > 0.5 ? 10 : -10 }]}
+            layers={[{ image: 'it_4.jpg', speed: -10 }]}
             className="h-full grayscale min-h-[200px]"
           />
         </Block>
@@ -245,7 +245,7 @@ This was my first project at Statzup and the frontend was written in EmberJS.</d
         </Block>
         <Block col={3} row={3}>
           <ParallaxBanner
-            layers={[{ image: 'hh.jpeg', speed: Math.random() > 0.5 ? 10 : -10 }]}
+            layers={[{ image: 'hh.jpeg', speed: -10 }]}
             className="h-full grayscale min-h-[200px]"
           />
         </Block>
@@ -253,7 +253,7 @@ This was my first project at Statzup and the frontend was written in EmberJS.</d
         <MediaQuery minWidth={768}>
           <Block col={3} row={3}>
             <ParallaxBanner
-              layers={[{ image: 'ricsardgir.png', speed: Math.random() > 0.5 ? 10 : -10 }]}
+              layers={[{ image: 'ricsardgir.png', speed: -10 }]}
               className="h-full grayscale min-h-[200px]"
             />
           </Block>
@@ -273,7 +273,7 @@ This was my first project at Statzup and the frontend was written in EmberJS.</d
           </Block>
           <Block col={3} row={3}>
             <ParallaxBanner
-              layers={[{ image: 'ricsardgir.png', speed: Math.random() > 0.5 ? 10 : -10 }]}
+              layers={[{ image: 'ricsardgir.png', speed: -10 }]}
               className="h-full grayscale min-h-[200px]"
             />
           </Block>
@@ -310,36 +310,6 @@ This was my first project at Statzup and the frontend was written in EmberJS.</d
       </>
     )
   }
-  const render6thPage = () => {
-    return (
-      <>
-        <Block colorNumber={1} col={4} row={2}>
-          <Content>
-            <div className="text-xl font-bold">Levente Hegedüs</div>
-            <div>Senior software engineer</div>
-          </Content>
-        </Block>
-        <Block colorNumber={2} col={4} row={2}>
-        </Block>
-        <Block colorNumber={1} col={3} row={6}>
-        </Block>
-        <Block colorNumber={4} col={2} row={4}>
-          <ParallaxBanner
-            layers={[{ image: 'https://images.unsplash.com/photo-1667162020876-9b6d74ad1962?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1587&q=80', speed: Math.random() > 0.5 ? 10 : -10 }]}
-            className="h-full grayscale min-h-[200px]"
-          />
-        </Block>
-        <Block colorNumber={3} col={3} row={6}>
-          <Content>
-            <div>I am Levente Hegedüs, a frontend developer from Budapest born in 1992. I've been working as a frontend developer for 5 years using ReactJS as my main strength for 4 years.</div>
-            <div>Since 2016 I have worked for small startup companies where I learned a lot about responsibility, how to work independently and to solve problems on my own due to the small development groups. Most of the time the development teams were maximum of 5 or less developers.</div>
-            <div>My future plans include gaining more experience with backend development and UI/UX planning, too.</div>
-          </Content>
-        </Block>
-        <Block colorNumber={3} col={2} row={2}></Block>
-      </>
-    )
-  }
 
   const render7thPage = () => {
     return (
@@ -351,7 +321,7 @@ This was my first project at Statzup and the frontend was written in EmberJS.</d
           <Content>{renderSkillLevel(4, 'ReduxJS')}</Content>
         </Block>
         <Block colorNumber={3} col={2} row={2}>
-          <Content>{renderSkillLevel(2, 'TypeScript')}</Content>
+          <Content>{renderSkillLevel(4, 'TypeScript')}</Content>
         </Block>
         <Block colorNumber={4} col={2} row={2}>
           <Content>{renderSkillLevel(5, 'CSS/SCSS')}</Content>
@@ -410,12 +380,12 @@ This was my first project at Statzup and the frontend was written in EmberJS.</d
         <Block colorNumber={1} col={2} row={4}>
           <Content>
             <div className="font-bold">Running</div>
-            <div>I do long-distance running since 2012. I've completed the marathon 14 times.</div>
+            <div>I do long-distance running since 2012. I've completed the marathon 14 times. I can talk about running for hours so I cut it short now.</div>
           </Content>
         </Block>
         <Block colorNumber={1} col={2} row={4}>
           <ParallaxBanner
-            layers={[{ image: 'running.jpg', speed: Math.random() > 0.5 ? 10 : -10 }]}
+            layers={[{ image: 'running.jpg', speed: -10 }]}
             className="h-full grayscale min-h-[200px]"
           />
         </Block>
@@ -427,14 +397,14 @@ This was my first project at Statzup and the frontend was written in EmberJS.</d
         </Block>
         <Block colorNumber={1} col={2} row={4}>
           <ParallaxBanner
-            layers={[{ image: 'music.jpg', speed: Math.random() > 0.5 ? 10 : -10 }]}
+            layers={[{ image: 'music.jpg', speed: -10 }]}
             className="h-full grayscale min-h-[200px]"
           />
         </Block>
         <MediaQuery minWidth={768}>
           <Block colorNumber={1} col={2} row={4}>
             <ParallaxBanner
-              layers={[{ image: 'football.jpg', speed: Math.random() > 0.5 ? 10 : -10 }]}
+              layers={[{ image: 'football.jpg', speed: -10 }]}
               className="h-full grayscale min-h-[200px]"
             />
           </Block>
@@ -446,8 +416,8 @@ This was my first project at Statzup and the frontend was written in EmberJS.</d
           </Block>
           <Block colorNumber={2} col={2} row={4}>
             <ParallaxBanner
-              layers={[{ image: 'travelling.jpg', speed: Math.random() > 0.5 ? 10 : -10 }]}
-              className="h-full grayscale min-h-[200px]"
+              layers={[{ image: 'travelling.png', speed: -10 }]}
+              className="h-full grayscale min-h-[200px] bg-[60%_center]"
             />
           </Block>
           <Block colorNumber={1} col={2} row={4}>
@@ -466,7 +436,7 @@ This was my first project at Statzup and the frontend was written in EmberJS.</d
           </Block>
           <Block colorNumber={1} col={2} row={4}>
             <ParallaxBanner
-              layers={[{ image: 'football.jpg', speed: Math.random() > 0.5 ? 10 : -10 }]}
+              layers={[{ image: 'football.jpg', speed: -10 }]}
               className="h-full grayscale min-h-[200px]"
             />
           </Block>
@@ -478,7 +448,7 @@ This was my first project at Statzup and the frontend was written in EmberJS.</d
           </Block>
           <Block colorNumber={2} col={2} row={4}>
             <ParallaxBanner
-              layers={[{ image: 'travelling.jpg', speed: Math.random() > 0.5 ? 10 : -10 }]}
+              layers={[{ image: 'travelling.png', speed: -10 }]}
               className="h-full grayscale min-h-[200px]"
             />
           </Block>
@@ -490,37 +460,53 @@ This was my first project at Statzup and the frontend was written in EmberJS.</d
   const render9thPage = () => {
     return (
       <>
+        <Block colorNumber={6} col={4} row={2}>
+          <Content>
+            <a href="mailto:levi.hegedus92@gmail.com" target="_blank">
+              <div className="font-bold flex items-center gap-x-2"><FaRegEnvelope /><span>email</span></div>
+              <div>levi.hegedus92@gmail.com</div>
+            </a>
+          </Content>
+        </Block>
+        <Block colorNumber={7} col={4} row={2}>
+          <Content>
+            <a href="https://www.linkedin.com/in/levente-hegedus" target="__blank">
+              <div className="font-bold flex items-center gap-x-2"><FaLinkedinIn />
+                <span>linkedIn</span>
+              </div>
+              <div>linkedin.com/in/levente-hegedus</div>
+            </a>
+          </Content>
+        </Block>
         <Block colorNumber={1} col={4} row={2}>
           <Content>
-            <div className="font-bold flex items-center gap-x-2"><FaRegEnvelope/><span>mail</span></div>
-            <div><a href="mailto:levi.hegedus92@gmail.com" target="_blank">levi.hegedus92@gmail.com</a></div>
-          </Content>
-        </Block>
-        <Block colorNumber={2} col={4} row={2}>
-          <Content>
-            <div className="font-bold flex items-center gap-x-2"><FaLinkedinIn/><span>linkedIn</span></div>
-            <div><a href="https://www.linkedin.com/in/levente-hegedus" target="__blank">linkedin.com/in/levente-hegedus</a></div>
-          </Content>
-        </Block>
-        <Block colorNumber={3} col={4} row={2}>
-          <Content>
-            <div className="font-bold flex items-center gap-x-2"><FaGithub/><span>github</span></div>
-            <div><a href="https://www.github.com/leventehegedus" target="__blank">github.com/leventehegedus</a></div>
+            <a href="https://www.github.com/leventehegedus" target="__blank">
+              <div className="font-bold flex items-center gap-x-2"><FaGithub /><span>github</span></div>
+              <div>github.com/leventehegedus</div>
+            </a>
           </Content>
         </Block>
         <Block col={4} row={4}>
           <ParallaxBanner
-            layers={[{ image: 'phone2.jpg', speed: Math.random() > 0.5 ? 10 : -10 }]}
+            layers={[{ image: 'phone2.jpg', speed: -10 }]}
             className="h-full grayscale min-h-[200px]"
           />
         </Block>
-        <Block colorNumber={4} col={4} row={2}>
+        <Block colorNumber={2} col={4} row={2}>
           <Content>
-            <div className="font-bold flex items-center gap-x-2"><FaPhoneAlt/><span>phone</span></div>
+            <div className="font-bold flex items-center gap-x-2"><FaPhoneAlt /><span>phone</span></div>
             <div>+36-30-7019989</div>
           </Content>
         </Block>
         <Block colorNumber={5} col={8} row={2}>
+          <Content>
+            <a href="cv_levente_hegedus_2023.pdf" target="_blank">
+              <div className="font-bold flex items-center gap-x-2">
+                <FaRegSave />
+                <div>Save my CV as a PDF</div>
+              </div>
+            </a>
+          </Content>
         </Block>
       </>
     )
@@ -543,7 +529,7 @@ This was my first project at Statzup and the frontend was written in EmberJS.</d
         Skills as a professional
       </div>
       {render7thPage()}
-      <div className="col-span-4 md:col-span-8 bg-gir-5 flex items-center justify-center text-white text-xl font-black  p-8">
+      <div className="col-span-8 md:col-span-8 bg-gir-5 flex items-center justify-center text-white text-xl font-black  p-8">
         Life after 5PM
       </div>
       {render8thPage()}
